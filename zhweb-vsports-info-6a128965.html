@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>V体育 – 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f8fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: #1e40af;
+            border-bottom-color: #1e40af;
+        }
+
+        /* 深色头图区 — 导航 + hero */
+        .hero-section {
+            background: linear-gradient(135deg, #0b1120 0%, #1f2a41 100%);
+            padding: 0 2rem 4rem;
+            color: #eef2f8;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 0 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .nav-bar .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-bar .logo a {
+            color: #facc15;
+            border-bottom: none;
+            font-weight: 600;
+        }
+
+        .nav-bar .logo a:hover {
+            color: #fde047;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #cfdbea;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            border-bottom-color: #facc15;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 span {
+            color: #facc15;
+        }
+
+        .hero-content p {
+            max-width: 750px;
+            margin: 0 auto 1.6rem;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #a5b4cb;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 0.5rem;
+        }
+
+        /* 正文浅色区 */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem 2rem;
+            justify-content: space-between;
+            margin-bottom: 3.5rem;
+        }
+
+        .intro-card {
+            flex: 1 1 260px;
+            background: white;
+            padding: 1.8rem 1.6rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf2f7;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .intro-card .emoji-icon {
+            font-size: 2rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .intro-card p {
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        /* 三个场景模块 — 卡片横向 */
+        .scene-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2.8rem 0 3.5rem;
+        }
+
+        .scene-item {
+            flex: 1 1 200px;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 1.5rem 1.8rem;
+            border: 1px solid #e9edf4;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+            transition: background 0.15s;
+        }
+
+        .scene-item h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scene-item p {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 0.2rem;
+        }
+
+        .scene-item .badge {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.75rem;
+            background: #eef2ff;
+            color: #2563eb;
+            padding: 0.2rem 0.9rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* 常见说明区域 (FAQ 风格) */
+        .faq-block {
+            background: white;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            margin-top: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-block h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            font-weight: 600;
+            color: #1e293b;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #475569;
+            margin: 0.25rem 0 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item a {
+            font-weight: 500;
+        }
+
+        hr {
+            margin: 3rem 0 1.5rem;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+            padding: 0.5rem 0 1.5rem;
+        }
+
+        .footer-note a {
+            font-weight: 500;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 800px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .nav-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .main-content {
+                padding: 2rem 1.2rem 4rem;
+            }
+            .faq-block {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.7rem;
+            }
+            .intro-card,
+            .scene-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 + 导航 -->
+    <header class="hero-section">
+        <nav class="nav-bar">
+            <div class="logo">
+                <a href="https://zhweb--vsports.com">V体育</a>
+            </div>
+            <div class="nav-links">
+                <a href="#about">站点说明</a>
+                <a href="#scenes">适用场景</a>
+                <a href="#faq">常见说明</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>关于 <span>V体育</span> 的站点介绍</h1>
+            <p>
+                <strong>V体育</strong> 是一个聚焦体育资讯与数据参考的线上平台。我们尝试以清晰、克制的方式呈现内容框架，
+                帮助访问者更快了解站点定位与信息结构。下面从背景、场景与常见疑问三个层面展开说明。
+            </p>
+            <span class="hero-tag">📌 信息型 · 知识向 · 轻量导航</span>
+        </div>
+    </header>
+
+    <!-- 正文浅色区 -->
+    <main class="main-content">
+
+        <!-- 核心介绍区块 -->
+        <section id="about">
+            <h2 class="section-title">站点背景与可信说明</h2>
+            <p class="section-sub">
+                <a href="https://zhweb--vsports.com">V体育</a> 不属于任何赛事官方机构，而是由独立团队维护的内容聚合与索引站点。
+                我们致力于呈现经过筛选的体育领域公开信息，并保持数据引用与来源的透明。在信息呈现上，更侧重知识性梳理而非实时播报。
+            </p>
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <span class="emoji-icon">📋</span>
+                    <h3>内容组织</h3>
+                    <p>模块化分类：联赛背景、队伍统计、规则说明；每部分均标注参考来源，方便交叉验证。</p>
+                </div>
+                <div class="intro-card">
+                    <span class="emoji-icon">⚖️</span>
+                    <h3>中立视角</h3>
+                    <p>不渲染倾向性评价，不鼓吹预测结果。所有描述均基于公开记录与客观事实。</p>
+                </div>
+                <div class="intro-card">
+                    <span class="emoji-icon">🔗</span>
+                    <h3>引用透明</h3>
+                    <p>重要数据与结论附带可查证链接，部分引用赛事官方或主流体育媒体公开内容。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section id="scenes">
+            <h2 class="section-title">三个典型了解场景</h2>
+            <p class="section-sub">不同访问者可能关心不同侧面，以下场景可帮助快速定位自己需要的板块。</p>
+
+            <div class="scene-wrapper">
+                <div class="scene-item">
+                    <h4>📖 规则与结构</h4>
+                    <p>想理解联赛赛制、积分逻辑及常见术语，可查阅「竞赛框架」板块，那里有较系统的文字说明。</p>
+                    <span class="badge">参考索引</span>
+                </div>
+                <div class="scene-item">
+                    <h4>📊 队伍与数据</h4>
+                    <p>已整理部分队伍的近期表现与阵容变动摘要，数据来自公开比赛记录，适合快速概览。</p>
+                    <span class="badge">统计摘要</span>
+                </div>
+                <div class="scene-item">
+                    <h4>🧭 导航与延伸</h4>
+                    <p>从 <a href="https://zhweb--vsports.com">V体育</a> 首页可进入不同分类页面，每个分类页都附带进一步阅读的链接。</p>
+                    <span class="badge">站点导览</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: #475569;">
+                上述场景基于通常的访问目的进行划分，你可以根据兴趣自由浏览对应模块。
+            </p>
+        </section>
+
+        <!-- 常见说明 (FAQ抽象) -->
+        <section id="faq" class="faq-block">
+            <h3>常见说明与提示</h3>
+            <div class="faq-item">
+                <strong>📌 站点是否与官方组织有关联？</strong>
+                <p>没有。本站是独立信息索引站点，不隶属于任何体育联盟、俱乐部或管理机构。所有引用均会注明出处。</p>
+            </div>
+            <div class="faq-item">
+                <strong>📌 数据更新频率如何？</strong>
+                <p>团队会定期根据公开赛程与结果进行更新，但并非实时。建议以官方渠道为最及时的信息源。</p>
+            </div>
+            <div class="faq-item">
+                <strong>📌 遇到内容错误或链接失效怎么办？</strong>
+                <p>我们欢迎指正。可通过页面底部或站点内提供的联系方式提交反馈，核实后会尽快修正。</p>
+            </div>
+            <div class="faq-item">
+                <strong>📌 为什么强调“可信说明”？</strong>
+                <p>体育信息环境复杂，我们希望通过清晰的引用与分类，帮助访问者区分事实陈述与推论，降低信息误判可能。</p>
+            </div>
+            <div class="faq-item" style="border-bottom: none;">
+                <strong>📌 从哪里开始浏览？</strong>
+                <p>首页（<a href="https://zhweb--vsports.com">V体育</a>）是所有分类的起点。如有特定联赛或队伍需求，可直接使用导航栏跳转。</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <div class="footer-note">
+            <p>本页面为站点介绍与说明，内容持续完善中。主要入口：<a href="https://zhweb--vsports.com">V体育</a> · 基于公开信息整理</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
