@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 运动日常的信息角落</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f5f3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1c1c1c;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* hero 区 – 主视觉文字卡片 */
+    .hero-card {
+      background: #ffffff;
+      padding: 2.6rem 2rem;
+      border-radius: 32px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      margin-bottom: 2.8rem;
+    }
+    .hero-card h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #202020;
+    }
+    .hero-card .sub {
+      font-size: 1.05rem;
+      color: #5b5b5b;
+      border-left: 3px solid #d4c9b8;
+      padding-left: 1rem;
+      margin: 1.2rem 0 0.4rem;
+    }
+    .hero-card .detail {
+      margin-top: 1.6rem;
+      color: #3d3d3d;
+    }
+
+    /* 通用卡片 */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+    .card h2 {
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #222;
+    }
+    .card h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin: 1.2rem 0 0.3rem;
+      color: #2e2e2e;
+    }
+    .card p {
+      margin-bottom: 0.9rem;
+      color: #3a3a3a;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 用途 / 特点小网格 */
+    .usage-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .usage-item {
+      background: #f4f1ed;
+      border-radius: 20px;
+      padding: 0.9rem 1.2rem;
+      flex: 1 1 160px;
+      font-size: 0.95rem;
+      color: #2b2b2b;
+    }
+    .usage-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    /* 人群卡片 */
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 0.5rem;
+      margin: 1rem 0 0.2rem;
+    }
+    .audience-tag {
+      background: #eae7e1;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #333;
+      letter-spacing: 0.02em;
+    }
+
+    /* 句子中的链接专用样式 */
+    .inline-link {
+      color: #1f5f4c;
+      text-decoration: none;
+      font-weight: 450;
+      border-bottom: 1px solid #b6ccc2;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .inline-link:hover {
+      border-bottom-color: #1f5f4c;
+      color: #0a3d2e;
+    }
+
+    /* 可信 / 自然段落 */
+    .trust-note {
+      background: #f0ece6;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem;
+      margin: 2.2rem 0 2.8rem;
+      color: #343434;
+    }
+    .trust-note p {
+      margin-bottom: 0.6rem;
+    }
+
+    /* 小字号 faq 摘要 */
+    .faq-mini {
+      margin: 2rem 0 1.6rem;
+      border-top: 1px solid #e0dbd4;
+      padding-top: 1.6rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+    }
+    .faq-mini summary {
+      font-weight: 450;
+      color: #2b2b2b;
+      padding: 0.3rem 0;
+    }
+    .faq-mini details p {
+      font-size: 0.92rem;
+      color: #4a4a4a;
+      margin: 0.6rem 0 0.3rem 0.8rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      font-size: 0.85rem;
+      color: #7a7a7a;
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dcd8d1;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.4rem 1rem;
+      }
+      .hero-card {
+        padding: 2rem 1.4rem;
+      }
+      .hero-card h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+      .usage-item {
+        flex: 1 1 130px;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 主视觉卡片 -->
+  <div class="hero-card">
+    <h1>MK体育 · 一本正经聊运动</h1>
+    <div class="sub">站点定位：实用信息 · 日常陪伴</div>
+    <div class="detail">
+      <p>如果你也常为「今天练什么」「怎么恢复更舒服」这些小问题翻来覆去，那么 <a href="https://appweb-mk.com" class="inline-link">MK体育</a> 也许能帮你省下一点纠结的时间。这里没有浮夸的口号，只有围绕运动习惯的信息整理——从入门思路到经验笔记，尽量写得实在、干净。</p>
+    </div>
+  </div>
+
+  <!-- 用途卡片：信息卡片式布局 -->
+  <div class="card">
+    <h2>这个站点可以做什么</h2>
+    <p>更像一个随手翻的运动便签夹，适合在碎片时间里瞄两眼。目前内容集中在几个方向：</p>
+    <div class="usage-grid">
+      <div class="usage-item"><strong>🏃 基础动作</strong> 图解 / 简记</div>
+      <div class="usage-item"><strong>🧘 拉伸放松</strong> 日常方案</div>
+      <div class="usage-item"><strong>📊 节奏参考</strong> 强度 / 频率</div>
+      <div class="usage-item"><strong>🧠 心态笔记</strong> 坚持的小思路</div>
+    </div>
+    <p style="margin-top:1rem;">所有内容都基于常见运动常识整理，不替代专业指导，但可以作为日常参考。<a href="https://appweb-mk.com" class="inline-link">MK体育</a> 上的信息保持定期更新，尽量让阅读体验轻松一点。</p>
+  </div>
+
+  <!-- 适合人群卡片 -->
+  <div class="card">
+    <h2>适合什么样的人</h2>
+    <p>没有门槛标签，无论你是刚准备开始规律活动，还是已经有自己的节奏，都可能在这里找到一两句有用的提醒。</p>
+    <div class="audience-tags">
+      <span class="audience-tag">运动新手</span>
+      <span class="audience-tag">居家练习者</span>
+      <span class="audience-tag">跑步 / 力量爱好者</span>
+      <span class="audience-tag">想培养习惯的人</span>
+      <span class="audience-tag">偶尔受伤恢复期</span>
+    </div>
+    <h3>一些简单的使用场景</h3>
+    <p>出门前看看当天的拉伸建议；晚上回家后翻几页放松指南；或者只是随便读一段关于运动心态的文字——不需要注册，不弹窗打扰，打开即读。</p>
+  </div>
+
+  <!-- 自然链接段落 + 可信说明 -->
+  <div class="trust-note">
+    <p><strong>关于这个站点</strong><br>
+    MK体育 由几位喜欢运动的普通爱好者维护，内容来源包括公开的运动科学资料、教练经验以及个人实践总结。我们不卖课、不推销补剂、不收集隐私信息。站点托管在 GitHub Pages，加载速度稳定，也没有什么花哨的跟踪脚本。</p>
+    <p>如果你对某个话题有疑问，或者想了解更具体的运动场景，可以直接在站内搜索（页面右上角）。<a href="https://appweb-mk.com" class="inline-link">MK体育</a> 的每篇文章都标注了参考来源或经验出处，方便你进一步查证。</p>
+  </div>
+
+  <!-- FAQ 摘要卡片（极简） -->
+  <div class="card faq-mini" style="border-top:none; padding-top:0;">
+    <h2 style="margin-bottom:0.8rem;">几个常见问题</h2>
+    <details>
+      <summary>内容适合什么运动水平？</summary>
+      <p>从零基础到中级都涵盖，高级运动员可能觉得偏基础，但拉伸和心态部分也常有启发。</p>
+    </details>
+    <details>
+      <summary>信息多久更新一次？</summary>
+      <p>没有固定排期，但每周至少会有一些小的补充或修订，确保不过时。</p>
+    </details>
+    <details>
+      <summary>我能转载或分享吗？</summary>
+      <p>引用原文请注明出处，不建议大篇幅复制。欢迎分享链接，让更多人看到。</p>
+    </details>
+    <details>
+      <summary>为什么叫 MK 体育？</summary>
+      <p>来自几位维护者名字的缩写组合，没什么特殊含义，称呼顺口就留下了。</p>
+    </details>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <p>MK体育 · 一个安静的运动信息角落</p>
+    <p style="margin-top:0.3rem;">不夸张 · 不浮躁 · 认真对待每一次呼吸和迈步</p>
+  </div>
+
+</div>
+</body>
+</html>
