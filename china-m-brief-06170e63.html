@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 运动现场与体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: linear-gradient(145deg, #fff4e0 0%, #fde9d6 50%, #f7d9b3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #2e241c;
+        }
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+        /* hero card */
+        .hero-card {
+            background: rgba(255, 248, 240, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 40px 40px 32px 32px;
+            padding: 3rem 2.5rem 2.5rem;
+            box-shadow: 0 12px 28px rgba(140, 80, 40, 0.15), 0 4px 12px rgba(0,0,0,0.04);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-card h1 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b45f2c, #d4853c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .hero-card .sub {
+            font-size: 1.25rem;
+            color: #6d4c34;
+            background: rgba(220, 170, 120, 0.25);
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1.8rem;
+            font-weight: 450;
+        }
+        .hero-card p {
+            max-width: 700px;
+            margin: 0 auto 0.4rem;
+            font-size: 1.1rem;
+            color: #3f3227;
+        }
+        .hero-card .tagline {
+            font-size: 1rem;
+            color: #8a6a50;
+            border-top: 1px solid #e5cdb5;
+            padding-top: 1.4rem;
+            margin-top: 1.2rem;
+        }
+        /* 通用卡片 */
+        .card {
+            background: #ffffffdd;
+            background: #fffaf5;
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 22px rgba(100, 60, 30, 0.08);
+            margin-bottom: 1.8rem;
+            border: 1px solid #f4e1cf;
+        }
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 550;
+            color: #5d3e28;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h2:before {
+            content: "▎";
+            color: #c57845;
+            font-weight: 400;
+            font-size: 2rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 0.8rem;
+        }
+        .feature-item {
+            background: #fff5eb;
+            border-radius: 24px;
+            padding: 1.2rem 1rem 1rem;
+            text-align: center;
+            border: 1px solid #ebd5c0;
+            transition: 0.2s;
+        }
+        .feature-item strong {
+            display: block;
+            font-size: 1.2rem;
+            color: #7a4f32;
+            margin-bottom: 0.4rem;
+        }
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #4b3c2f;
+        }
+        .faq-list {
+            margin-top: 0.5rem;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e7d4c0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #613f2a;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #4f3a2b;
+            font-size: 0.98rem;
+            padding-left: 0.5rem;
+        }
+        .foot-links {
+            background: #f3e3d3cc;
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.8rem 2.2rem;
+            border: 1px solid #e1cbb6;
+            margin-top: 0.5rem;
+            font-size: 0.98rem;
+        }
+        .foot-links a {
+            color: #6f4c32;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            transition: 0.2s;
+            background: transparent;
+        }
+        .foot-links a:hover {
+            background: #dbbca0;
+            color: #2f1f15;
+        }
+        .foot-links .mk-highlight {
+            background: #dda573;
+            color: #2c1e14;
+            padding: 0.3rem 1.2rem;
+            font-weight: 600;
+            border-radius: 40px;
+            box-shadow: 0 2px 6px rgba(150, 80, 30, 0.2);
+        }
+        .foot-links .mk-highlight:hover {
+            background: #ce8f5a;
+        }
+        .footnote {
+            text-align: center;
+            margin-top: 2rem;
+            color: #795f4a;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 700px) {
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+            .hero-card h1 {
+                font-size: 2.4rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .foot-links {
+                flex-direction: column;
+                gap: 0.8rem;
+                border-radius: 32px;
+                padding: 1.2rem 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero区 -->
+    <div class="hero-card">
+        <h1>MK体育</h1>
+        <div class="sub">真实赛场 · 纯粹热爱</div>
+        <p>从绿茵草地到硬木地板，从计时器到终点线——<strong>MK体育</strong>关注运动本身的力量与细节，围绕赛事动态、运动知识、训练思路与装备观察，为每一位投入运动的你提供扎实的内容。</p>
+        <div class="tagline">不只记录成绩，更理解过程。</div>
+    </div>
+
+    <!-- 优势区：三个特点 -->
+    <div class="card">
+        <h2>为什么选择MK体育</h2>
+        <div class="grid-3">
+            <div class="feature-item">
+                <strong>📊 赛况与数据</strong>
+                <span>主流赛事回顾、战术简析、球员数据，呈现比赛的另一面。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🧠 训练与恢复</strong>
+                <span>基础体能、运动营养、损伤预防，帮你更聪明地训练。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🏅 装备与场地</strong>
+                <span>球鞋、护具、场地条件，客观评测与使用心得。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：从主题展开 -->
+    <div class="card">
+        <h2>运动视野 · 不止一面</h2>
+        <p style="margin-bottom: 1rem;">
+            很多人接触体育是从一场直播、一次投篮或者一次冲刺开始的。<strong><a href="https://china-m-mk.com" style="color:#b45c2a; text-decoration: none; font-weight: 550; border-bottom: 2px solid #dba87a;">MK体育</a></strong> 希望成为你了解运动世界的其中一个锚点——这里不贩卖捷径，也不生产夸张口号，只整理那些经过验证的信息：从运动生理学到基础战术，从装备选择到恢复策略。
+        </p>
+        <p>
+            无论你是刚开始运动的爱好者，还是已经坚持多年的实践者，这里的内容都试图回归体育的本来面目：汗水、准备、判断、适应。我们用平实的语言拆解运动背后那些可重复、可验证的方法。<br>
+            例如，为什么某个拉伸动作更有效？一双训练鞋的核心支撑点在哪里？赛前饮食如何安排而不增加肠胃负担？这些具体问题正是 <strong>MK体育</strong> 持续关注的方向。
+        </p>
+    </div>
+
+    <!-- FAQ摘要 -->
+    <div class="card">
+        <h2>常见问题 · 简要梳理</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">⚡ MK体育 的内容多久更新一次？</div>
+                <div class="faq-a">目前保持每周 3–5 篇原创或编译内容，覆盖赛事分析、训练基础与装备评测，没有固定模板，根据赛季与用户反馈调整节奏。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">📌 是否提供训练计划或个性化建议？</div>
+                <div class="faq-a">网站主要分享通用原则与案例，不代替专业教练或医生。可以结合自身情况参考其中的思路和方法。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">🔎 怎样快速找到某类运动的信息？</div>
+                <div class="faq-a">首页设有分类导航（足球、篮球、跑步、综合体能），也可以通过站内搜索关键词直达相关文章。</div>
+            </div>
+            <div class="faq-item" style="border-bottom: none;">
+                <div class="faq-q">🎯 内容来源可靠吗？</div>
+                <div class="faq-a">每篇内容均标注参考文献或数据来源（期刊、官方报告、实测结果），鼓励交叉验证。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 + 自然嵌入 -->
+    <div class="foot-links">
+        <span>随时了解</span>
+        <a href="https://china-m-mk.com" class="mk-highlight">MK体育</a>
+        <span>·</span>
+        <a href="#">赛事简报</a>
+        <a href="#">训练笔记</a>
+        <a href="#">装备库</a>
+        <span>·</span>
+        <a href="#">关于我们</a>
+    </div>
+    <div class="footnote">
+        <span>整理自开放信息 · 内容仅供参考，不构成专业建议</span>
+    </div>
+</div>
+</body>
+</html>
